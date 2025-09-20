@@ -64,7 +64,7 @@ export default function Home() {
               <div className="space-y-3 sm:space-y-2">
                 <div className="text-sm text-muted-foreground font-mono tracking-wider">PORTFOLIO / 2025</div>
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
-                  <span className="text-foreground">Hi, I&apos;m</span>
+                  <span className="text-5xl text-foreground">Hi, I&apos;m</span>
                   <br />
                   <span className="text-muted-foreground">N Tuan Anh</span>
                 </h1>
