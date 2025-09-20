@@ -40,7 +40,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground relative">
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
         <div className="flex flex-col gap-4">
-          {["intro", "work", "thoughts", "connect"].map((section) => (
+          {["intro", "work", "connect"].map((section) => (
             <button
               key={section}
               onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })}
@@ -66,7 +66,7 @@ export default function Home() {
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
                   <span className="text-5xl text-foreground">Hi, I&apos;m</span>
                   <br />
-                  <span className="text-muted-foreground">N Tuan Anh</span>
+                  <span className="text-muted-foreground">N.Tuan Anh</span>
                 </h1>
               </div>
 
@@ -120,7 +120,7 @@ export default function Home() {
             </div>
           </div>
         </header>
-{/* 
+
         <section
           id="work"
           ref={(el) => (sectionsRef.current[1] = el)}
@@ -134,6 +134,13 @@ export default function Home() {
 
             <div className="space-y-8 sm:space-y-12">
               {[
+                {
+                  year: "2025",
+                  role: "Backend Developer",
+                  company: "",
+                  description: "Design and implement backend services for a social media platform, ecommerce website, and web application.",
+                  tech: ["Go", "Laravel", "MySQL"],
+                },
                 // {
                 //   year: "2023",
                 //   role: "Senior Frontend Engineer",
@@ -195,9 +202,9 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section> */}
+        </section>
 
-        <section
+        {/* <section
           id="thoughts"
           ref={(el) => (sectionsRef.current[2] = el)}
           className="min-h-screen py-20 sm:py-32 opacity-0"
@@ -269,7 +276,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section id="connect" ref={(el) => (sectionsRef.current[3] = el)} className="py-20 sm:py-32 opacity-0">
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
