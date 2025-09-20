@@ -3,6 +3,52 @@
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
+// TypewriterText component with highlight support
+const TypewriterText = ({ 
+  text, 
+  className = "", 
+  delay = 150,
+  highlightWords = []
+}: { 
+  text: string, 
+  className?: string, 
+  delay?: number,
+  highlightWords?: string[]
+}) => {
+  const [displayText, setDisplayText] = useState("")
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex])
+        setCurrentIndex(prev => prev + 1)
+      }, delay)
+      return () => clearTimeout(timeout)
+    }
+  }, [currentIndex, text, delay])
+
+  // Function to highlight specific words
+  const highlightText = (text: string) => {
+    if (highlightWords.length === 0) return text
+    
+    let highlightedText = text
+    highlightWords.forEach(word => {
+      const regex = new RegExp(`\\b${word}\\b`, 'gi')
+      highlightedText = highlightedText.replace(regex, `<span class="text-foreground">${word}</span>`)
+    })
+    
+    return highlightedText
+  }
+
+  return (
+    <span className={className}>
+      <span dangerouslySetInnerHTML={{ __html: highlightText(displayText) }} />
+      {currentIndex < text.length && <span className="animate-pulse">|</span>}
+    </span>
+  )
+}
+
 export default function Home() {
   const [isDark, setIsDark] = useState(true)
   const [activeSection, setActiveSection] = useState("")
@@ -62,7 +108,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-5 gap-12 sm:gap-16 w-full">
             <div className="lg:col-span-3 space-y-6 sm:space-y-8">
               <div className="space-y-3 sm:space-y-2">
-                <div className="text-sm text-muted-foreground font-mono tracking-wider">PORTFOLIO / 2025</div>
+                <div className="text-sm text-muted-foreground font-mono tracking-wider">BACKEND DEVELOPER / 2025</div>
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
                   <span className="text-5xl text-foreground">Hi there, I&apos;m</span>
                   <br />
@@ -72,7 +118,11 @@ export default function Home() {
 
               <div className="space-y-6 max-w-md">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  Backend Developer focused on <span className="text-foreground">problem-solving</span>, <span className="text-foreground">data handling</span>, and <span className="text-foreground">security</span>.
+                  <TypewriterText 
+                    text="Backend Developer focused on problem-solving, data handling, and security."
+                    delay={50}
+                    highlightWords={["problem-solving", "data handling", "security"]}
+                  />
                 </p>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 md:gap-8 text-sm text-muted-foreground">
