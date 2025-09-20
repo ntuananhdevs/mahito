@@ -81,7 +81,7 @@ export default function Home() {
                     Available for work
                   </div>
                   <div className="flex items-center gap-2">
-                    Việt Nam~
+                    Việt Nam
                     <img 
                       src="/vn.jpg" 
                       alt="Lá cờ Việt Nam" 
