@@ -34,6 +34,7 @@ export default function RootLayout({
             `,
           }}
         />
+        <meta name="google-site-verification" content="eHUnxmjqtPW059Hs3tHH8yb1VsSkjr4xhlrvJG7ZiQM" />
       </head>
       <body className="font-sans antialiased">
         <div className="mandala-background"></div>
