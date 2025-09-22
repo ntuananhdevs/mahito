@@ -21,7 +21,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geist.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2487WYD37R"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2487WYD37R');
+            `,
+          }}
+        />
+      </head>
+      <body className="font-sans antialiased">
+        <div className="mandala-background"></div>
+        {children}
+      </body>
     </html>
   )
 }
