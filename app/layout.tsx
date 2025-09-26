@@ -8,7 +8,7 @@ const geist = Geist({
   display: "swap",
   variable: "--font-geist",
 })
-
+ 
 export const metadata: Metadata = {
   title: "NTUANANH - Backend Develop",
   description: "Backend Developer focused on problem-solving, data handling, and security.",
