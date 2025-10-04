@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 
 :root {
+  --color-night-rider: #2d2d2d;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -38,6 +39,7 @@
 }
 
 .dark {
+  --color-night-rider: #2d2d2d;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
@@ -115,8 +117,33 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-image: url('/background.png');
+    /* background-color: var(--color-night-rider); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(20, 20, 20, 0.95) 0%, rgba(15, 15, 15, 0.95) 50%, rgba(8, 8, 8, 0.95) 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .mandala-background {
+    display: none;
   }
 }
 
@@ -124,11 +151,11 @@
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
   }
-  
+
   .animate-typewriter {
     animation: typewriter 3s steps(40) 1s forwards;
   }
-  
+
   .animate-blink {
     animation: blink 1s infinite;
   }
@@ -139,6 +166,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -149,36 +177,48 @@
   from {
     width: 0;
   }
+
   to {
     width: 100%;
   }
 }
 
 @keyframes blink {
-  0%, 50% {
+
+  0%,
+  50% {
     opacity: 1;
   }
-  51%, 100% {
+
+  51%,
+  100% {
     opacity: 0;
   }
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   33% {
     transform: translateY(-10px) rotate(120deg);
   }
+
   66% {
     transform: translateY(5px) rotate(240deg);
   }
 }
 
 @keyframes glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
   }
+
   50% {
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(147, 51, 234, 0.6);
   }
