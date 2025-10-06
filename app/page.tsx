@@ -107,7 +107,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-5 gap-12 sm:gap-16 w-full">
             <div className="lg:col-span-3 space-y-6 sm:space-y-8">
               <div className="space-y-3 sm:space-y-2">
-                <div className="text-sm text-muted-foreground font-mono tracking-wider">BACKEND DEVELOPER / 2025</div>
+                <div className="text-sm text-muted-foreground font-mono tracking-wider">FULLSTACK DEVELOPER / 2025</div>
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
                   <span className="text-5xl text-foreground">Hi there, I&apos;m</span>
                   <br />
@@ -118,7 +118,7 @@ export default function Home() {
               <div className="space-y-6 max-w-md">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
                   <TypewriterText
-                    text="Backend Developer focused on problem-solving, data handling, and security."
+                    text="Fullstack Developer focused on problem-solving, data handling, and security."
                     delay={50}
                     highlightWords={["problem-solving", "data handling", "security"]}
                   />
@@ -145,7 +145,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="text-sm text-muted-foreground font-mono">CURRENT</div>
                 <div className="space-y-2">
-                  <div className="text-foreground">Backend Developer</div>
+                  <div className="text-foreground">Fullstack Developer</div>
                   <div className="text-muted-foreground">@ Co-P</div>
                   <div className="text-xs text-muted-foreground">2025 — Present</div>
                 </div>
@@ -192,7 +192,7 @@ export default function Home() {
               {[
                 {
                   year: "2025",
-                  role: "Backend Developer",
+                  role: "Fullstack Developer",
                   company: "",
                   description: "Design and implement backend services for a social media platform, ecommerce website, and web application.",
                   tech: ["Go", "Laravel", "MySQL"],

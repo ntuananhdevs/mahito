@@ -10,8 +10,8 @@ const geist = Geist({
 })
  
 export const metadata: Metadata = {
-  title: "NTUANANH - Backend Develop",
-  description: "Backend Developer focused on problem-solving, data handling, and security.",
+  title: "NTUANANH - Fullstack Develop",
+  description: "Fullstack Developer focused on problem-solving, data handling, and security.",
 }
 
 export default function RootLayout({
