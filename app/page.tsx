@@ -146,7 +146,7 @@ export default function Home() {
                 <div className="text-sm text-muted-foreground font-mono">CURRENT</div>
                 <div className="space-y-2">
                   <div className="text-foreground">Fullstack Developer</div>
-                  <div className="text-muted-foreground">@ Co-P</div>
+                  <div className="text-muted-foreground">@ PM</div>
                   <div className="text-xs text-muted-foreground">2025 — Present</div>
                 </div>
               </div>
