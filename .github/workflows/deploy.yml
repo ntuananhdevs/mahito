@@ -21,8 +21,11 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
+          set -e
           cd /www/mahito
-          git pull origin main
+          git fetch origin main
+          git reset --hard origin/main
+          git clean -fd
           npm install
           npm run build
           pm2 restart mahito || pm2 start npm --name "mahito" -- start
