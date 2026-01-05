@@ -28,14 +28,28 @@ const TypewriterText = ({
     }
   }, [currentIndex, text, delay])
 
+  // Function to escape HTML to prevent XSS
+  const escapeHtml = (text: string): string => {
+    const map: Record<string, string> = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;',
+    }
+    return text.replace(/[&<>"']/g, (m) => map[m])
+  }
+
   // Function to highlight specific words
   const highlightText = (text: string) => {
-    if (highlightWords.length === 0) return text
+    if (highlightWords.length === 0) return escapeHtml(text)
 
-    let highlightedText = text
+    // Escape the entire text first
+    let highlightedText = escapeHtml(text)
     highlightWords.forEach(word => {
-      const regex = new RegExp(`\\b${word}\\b`, 'gi')
-      highlightedText = highlightedText.replace(regex, `<span class="text-foreground">${word}</span>`)
+      const escapedWord = escapeHtml(word)
+      const regex = new RegExp(`\\b${escapedWord}\\b`, 'gi')
+      highlightedText = highlightedText.replace(regex, `<span class="text-foreground">${escapedWord}</span>`)
     })
 
     return highlightedText
